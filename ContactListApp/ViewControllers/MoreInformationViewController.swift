@@ -20,4 +20,5 @@ class MoreInformationViewController: UIViewController {
         phoneNumberLabel.text = String(contact.phoneNumber)
        
     }
+    
 }

@@ -10,10 +10,7 @@ import UIKit
 class ContactListViewController: UITableViewController {
     
     private var contactList = Person.getPerson()
- let contact = contactList[indexPath.row]
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,8 +44,8 @@ class ContactListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let contact = contactList[indexPath.row]
-        
     }
+
 
     
     // MARK: - Navigation
@@ -56,7 +53,7 @@ class ContactListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let moreInformationVC = segue.destination as? MoreInformationViewController else { return }
         guard let index = tableView.indexPathForSelectedRow else {return }
-        moreInformationVC.contact = contact
+        moreInformationVC.contact = contactList[index.row]
        
     }
 }
